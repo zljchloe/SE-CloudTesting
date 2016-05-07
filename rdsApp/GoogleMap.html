@@ -273,18 +273,6 @@ html, body {
 		}
 	</script>
 
-	<script>
-	var frm = $('#form');
-	frm.submit(function (ev) {
-	    $.ajax({
-	        type: frm.attr('method'),
-	        url: frm.attr('action'),
-	        data: frm.serializeArray(),          // what is sent
-	    });	
-	    ev.preventDefault();
-	});
-	</script>
-
 	<div class = "text">
 		<form id="form" action="/" method="post" >
 			<div class="choice">
@@ -307,6 +295,21 @@ html, body {
 			<input type="submit" id="submit" value="Submit">
 		</form>
 	</div>
+
+	<script>
+	var frm = $('#form');
+	frm.submit(function (event) {
+	    $.ajax({
+	        type: frm.attr('method'),
+	        url: frm.attr('action'),
+	        data: frm.serializeArray(), 
+	        // success: function (res){
+	        // 	console.log('done');
+	        // }        
+	    });
+	    event.preventDefault();	
+	});
+	</script>
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.js"></script>
 	<script
@@ -332,7 +335,8 @@ html, body {
 				map : map
 			});
 			console.log(location.hostname);
-			socket = io.connect('52.91.237.172:8081/');
+			//socket = io.connect('52.91.237.172:8081/');
+			socket = io.connect();
 			socket.on('welcome', function(data){
             	console.log(data);                
         	})
