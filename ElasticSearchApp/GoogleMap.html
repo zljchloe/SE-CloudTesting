@@ -302,7 +302,7 @@ html, body {
 			});
 			console.log(location.hostname);
 			//socket = io.connect('52.91.237.172:8081/');
-			socket = io.connect('52.91.20.56:8081/');
+			socket = io.connect();
 			socket.on('welcome', function(data){
             	console.log(data);                
         	})
