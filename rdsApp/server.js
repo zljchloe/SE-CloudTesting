@@ -42,7 +42,6 @@ function search(key, time) {
 		str += ";";
 
     console.log (str);
-    global_socket.emit('welcome', { message: 'before search connection!', id: global_socket.id });
 	connection.query(str, function(err, rows, fields) {
 		if (err) throw err;
 		var result = [];
@@ -52,7 +51,6 @@ function search(key, time) {
 	        var item = {Latitude : lat, Longitude: lon};
 	        result.push(item);
 		}
-    global_socket.emit('welcome', { message: 'after search connection!', id: global_socket.id });
 	console.log(result);
 		global_socket.emit('marks',{message:result, id:global_socket.id});
 	});
@@ -63,11 +61,11 @@ app.get('/', function (req, res) {
 });
 
 app.post('/', function (req, res) {
-  global_socket.emit('welcome', { message: 'post!', id: global_socket.id });
   var keyword=req.body.keyword;
   var period=req.body.time;
   console.log("Keyword = "+ keyword +", period is "+ period);
   search(keyword, period);
+//  res.send('done');
 });
  
  io.on('connection', function(socket){
