@@ -70,7 +70,7 @@ function search(keyword) {
 
     client.search({
         q: keyword,
-        size: 10000
+        size: 100000
         // body: {
         //     // "aggs": {
         //     //     "last_hour": {
