@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rp:ObjectSet xmlns:rp="http://www.soasta.com/services/repository">
+  <Object type="composition" schemaVersion="8157" name="rds 5user" path="/CloudTest Lite's Tests">
+    <Body>
+      <Composition xmlns="http://www.soasta.com/services/repository">
+        <Bands>
+          <Band name="Band 1" scope="private" slotCount="1" type="sequenced">
+            <Description />
+          </Band>
+        </Bands>
+        <Tracks>
+          <Track enabled="1" name="Track 1" scope="private">
+            <Bands>
+              <Band name="Band 1">
+                <Clips>
+                  <Clip displayWidth="1" enabled="1" endSlot="0" failure-action="fail" name="Test Clip (2)" ref="1" scope="private" startSlot="0" />
+                </Clips>
+              </Band>
+            </Bands>
+            <Distributions>
+              <Distribution dynamicRampMaxVUCount="5" name="Distribution 1">
+                <Places>
+                  <Place type="AnyServer" />
+                </Places>
+                <Repeat renewalType="ev" repeatType="cc" staggerType="cc" timing="p">
+                  <Stagger>
+                    <Const>5000</Const>
+                  </Stagger>
+                  <Count>
+                    <Const>5</Const>
+                  </Count>
+                </Repeat>
+              </Distribution>
+            </Distributions>
+          </Track>
+        </Tracks>
+        <Dashboards>
+          <Play order="3,4,5,6,7" />
+        </Dashboards>
+        <PlaySettings>
+          <AutoStopTime setting="300000" />
+          <PersistResult setting="true" />
+          <SaveAnalysisDetails setting="false" />
+          <SaveAnalysisCompElementDetails setting="false" />
+          <ResultLevels>
+            <Composition level="verbose" />
+            <Band level="none" />
+            <Track level="none" />
+            <MessageClip level="none" />
+            <Chain level="none" />
+            <Group level="none" />
+            <Transaction level="none" />
+            <Page level="none" />
+            <If level="none" />
+            <Switch level="none" />
+            <Message level="none" />
+            <BrowserAction level="none" />
+            <AppAction level="none" />
+            <DatabaseAction level="none" />
+            <Transition level="none" />
+            <Checkpoint level="none" />
+            <Delay level="none" />
+            <Control level="none" />
+            <Target level="none" />
+            <Transport level="none" />
+            <Validation level="none" />
+            <SendMessageWebSocket level="none" />
+            <TargetEventHandlerWebSocket level="none" />
+            <TargetEventOpenWebSocket level="none" />
+            <TargetEventCloseWebSocket level="none" />
+            <TargetEventErrorWebSocket level="none" />
+            <TargetEventIdleWebSocket level="none" />
+            <TargetEventMessageWebSocket level="none" />
+            <TargetEventMessageDefaultWebSocket level="none" />
+            <EventMessageWebSocket level="none" />
+            <OpenWebSocket level="none" />
+            <CloseWebSocket level="none" />
+            <EventGroup level="none" />
+            <Wait level="none" />
+          </ResultLevels>
+          <ContainerAnalytics>
+            <MessageClip enabled="true" />
+            <Chain enabled="false" />
+            <Group enabled="true" />
+            <Transaction enabled="true" />
+            <Page enabled="true" />
+            <If enabled="false" />
+            <Switch enabled="false" />
+            <Burst enabled="false" />
+          </ContainerAnalytics>
+          <ForceGC setting="true" />
+          <TrackGC setting="false" />
+          <HaltOnError setting="never-clip-and-above" />
+        </PlaySettings>
+      </Composition>
+    </Body>
+    <BinaryData />
+    <Attributes>
+      <Attribute name="lastPlayed">
+        <Value>2016-04-23T03:56:08.391-07:00</Value>
+      </Attribute>
+      <Attribute name="successfulPlayCount">
+        <Value>1</Value>
+      </Attribute>
+      <Attribute name="unsuccessfulPlayCount">
+        <Value>0</Value>
+      </Attribute>
+      <Attribute name="stoppedPlayCount">
+        <Value>0</Value>
+      </Attribute>
+      <Attribute name="userData">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="baselineResultID">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+    <References>
+      <Reference id="459" internalID="4" name="User Scenario Analysis Dashboard" path="/System Objects/Dashboards" type="dashboard" />
+      <Reference id="460" internalID="6" name="Waterfall Dashboard" path="/System Objects/Dashboards" type="dashboard" />
+      <Reference id="461" internalID="7" name="Dynamic Ramp Dashboard" path="/System Objects/Dashboards" type="dashboard" />
+      <Reference id="441" internalID="5" name="Error Analysis Dashboard" path="/System Objects/Dashboards" type="dashboard" />
+      <Reference id="444" internalID="3" name="Load Test Summary Dashboard" path="/System Objects/Dashboards" type="dashboard" />
+      <Reference id="815" internalID="1" name="Test Clip (2)" path="/CloudTest Lite's Tests" type="messageclip" />
+    </References>
+  </Object>
+</rp:ObjectSet>
