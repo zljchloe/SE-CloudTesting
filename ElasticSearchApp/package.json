@@ -1,12 +1,16 @@
 {
-  "name": "cloud",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "author": "",
-  "license": "ISC"
+  "name": "WebContent",
+  "version": "0.0.1",
+  "author": "Liang Li",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "formidable": "^1.0.17",
+    "ip": "^1.1.2",
+    "mysql": "2.10.2",
+    "socket.io": "^1.4.6",
+    "whatever": "^6000.0.0"
+  }
 }
