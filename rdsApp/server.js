@@ -1,6 +1,14 @@
 var express = require('express');
+var session = require('express-session');
 var app = express();
 app.use(express.static(__dirname + '/public'));
+app.use(session({
+    secret: 's_secret',
+    resave: true,
+    saveUninitialized: true
+}));
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
 
 var bodyParser = require('body-parser')
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
@@ -16,6 +24,8 @@ server.listen(8081, function () {
 
 var mysql = require('mysql');
 var global_socket;
+var global_user;
+var sess;
 
 var connection = mysql.createConnection({
   host     : 'tweetdata.c83g2woipxnr.us-east-1.rds.amazonaws.com',
@@ -56,20 +66,45 @@ function search(key, time) {
 	});
 }
 
+function register(user, password) {
+	var str;
+	str = "INSERT INTO USER values('" + user + "', '" + password + "' )";
+	connection.query(str, function(error) {
+		if (error) {
+            console.log(error.message);
+        } else {
+            console.log('success');    
+        }
+	});
+}
+
+
 app.get('/', function (req, res) {
-   res.sendFile(__dirname + '/GoogleMap.html');
+   res.sendFile(__dirname + '/signin.html');
 });
 
-app.post('/', function (req, res) {
+app.post('/signin', function (req, res) {
+   sess = req.session;
+   sess.user = req.body.user;
+   res.send('done');
+});
+
+app.get('/map', function (req, res) {
+   sess = req.session;
+  res.render("GoogleMap", {user: sess.user});
+
+});
+
+app.post('/map', function (req, res) {
   var keyword=req.body.keyword;
   var period=req.body.time;
   console.log("Keyword = "+ keyword +", period is "+ period);
   search(keyword, period);
-//  res.send('done');
+  res.send('done');
 });
+
  
  io.on('connection', function(socket){
    console.log('a user connected');
-   socket.emit('welcome', { message: 'connection!', id: socket.id });
    global_socket = socket;
  });
