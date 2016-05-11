@@ -1,7 +1,6 @@
 #6156 Topics in Software Engineering
 ##Continuous Cloud Testing for Web Applications
-###Liang Li, Jin Liang,
-###Yu Wang , Lyujia Zhang
+Author: Liang Li, Jin Liang, Yu Wang , Lyujia Zhang
 ### @Columbia University
 This project contains:
 - Two versions of Twitter Map 
