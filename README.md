@@ -3,4 +3,8 @@
 ###Liang Li, Jin Liang,
 ###Yu Wang , Lyujia Zhang
 ### @Columbia University
-This project contains two versions of Twitter Map. 
+This project contains:
+- Two versions of Twitter Map 
+- Final report 
+- Test plan 
+- Test analysis 
